@@ -8,16 +8,18 @@ body {
   background: #99aed6;
   margin: 0;
   padding: 0;
+  min-width: 375px
 }
 
 .page-title {
-  width: 80%;
+  width: 90%;
   box-sizing: border-box;
-  margin: 60px auto;
+  margin: 30px auto;
+  font-size: 1.5rem;
   padding: 10px;
   color: #1d2124;
   text-align: center;
-  border-radius: 52px;
+  border-radius: 30px;
   background: #99aed6;
   box-shadow: 14px 14px 45px #63718b,
     -14px -14px 45px #cfebff;
@@ -26,12 +28,12 @@ body {
 
 #app {
   box-sizing: border-box;
-  width: 80%;
+  width: 90%;
   min-height: 500px;
-  padding: 40px 20px;
-  margin: 60px auto;
+  padding: 20px;
+  margin: 40px auto;
 
-  border-radius: 52px;
+  border-radius: 30px;
   background: #99aed6;
   box-shadow: 14px 14px 45px #63718b,
     -14px -14px 45px #cfebff;
@@ -41,9 +43,9 @@ body {
   box-sizing: border-box;
   width: 85%;
   padding: 20px 20px;
-  margin: 30px auto 50px;
+  margin: 30px auto 30px;
 
-  border-radius: 52px;
+  border-radius: 30px;
   background: #99aed6;
   box-shadow: 4px 4px 20px #63718b,
     -4px -4px 20px #cfebff;
@@ -102,9 +104,9 @@ button:active,
 
 
 .grid-container {
-  padding: 40px 70px;
+  padding: 25px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 30px 20px;
   justify-items: center;
   align-items: center;
@@ -166,4 +168,42 @@ a.btn {
   text-align: center;
   display: block;
   margin: 40px auto;
+}
+
+
+@media (min-with: 768px) {
+  .page-title {
+    border-radius: 50px;
+    width: 80%;
+    margin: 60px auto;
+    font-size: 2rem;
+  }
+
+  #app {
+    width: 80%;
+    padding: 40px 20px;
+    margin: 60px auto;
+    border-radius: 52px;
+  }
+
+  .block {
+    box-sizing: border-box;
+    width: 85%;
+    padding: 20px 20px;
+    margin: 30px auto 50px;
+
+    border-radius: 50px;
+    background: #99aed6;
+    box-shadow: 4px 4px 20px #63718b,
+      -4px -4px 20px #cfebff;
+  }
+
+  .grid-container {
+    padding: 40px 70px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 20px;
+    justify-items: center;
+    align-items: center;
+  }
 }
