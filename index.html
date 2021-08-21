@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1 class="page-title">Monster Slayer</h1>
+  <div id="app">
+    <div v-if="!gameOver">
+      <div class="block">
+        <h2>Monster Health</h2>
+        <div class="bar">
+          <div class="fill" :style="monsterHealthStyles"></div>
+        </div>
+      </div>
+      <div class="block">
+        <h2>Your Health</h2>
+        <div class="bar">
+          <div class="fill" :style="heroHealthStyles"></div>
+        </div>
+      </div>
+      <div class="block grid-container">
+        <button @click="attack('toMonster')" type="button" :disabled="!heroTurn">ATTACK</button>
+        <button @click="doSpecialAttack" type="button" :disabled="!heroTurn || !specialAttack">SPECIAL ATTACK</button>
+        <button @click="heal" type="button" :disabled="!heroTurn">HEAL</button>
+        <button type="button" :disabled="!heroTurn  || true">SURRENDER</button>
+      </div>
+
+      <div class="block">
+        <h2>Battle Log</h2>
+        <ul v-if="log.length">
+          <li v-for="item ,index in log" :key="index">
+            <span
+              :class="['pers', {monster: item.personage === 'monster', player: item.personage === 'player'}]">{{item.personage}}</span>
+            <span v-if="item.action === 'attack'">attacks and deals</span>
+            <span v-else-if="item.action === 'special'">special attack and deals</span>
+            <span v-else>heal</span>
+            <span
+              :class="['value', {heal: item.action === 'heal', damage: item.action === 'attack' || item.action === 'special' }]">{{item.value}}</span>
+          </li>
+          <!-- <li>
+            <span class='pers monster'>Monster</span>
+            <span>attacks and deals</span>
+            <span class=" value damage">13</span>
+          </li>
+          <li>
+            <span class='pers player'>Player</span>
+            <span>attacks and deals</span>
+            <span class="value damage">10</span>
+          </li>
+          <li>
+            <span class='pers player'>Player</span>
+            <span>heal</span>
+            <span class="value heal">10</span>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+    <div v-else class="block game-over">
+      <h2>Game over</h2>
+      <p :class="['result', gameResult.class]">{{ gameResult.text }}</p>
+      <a class="btn" href="/">Restart</a>
+    </div>
+  </div>
+
+  <script src=" https://unpkg.com/vue@next">
+  </script>
+  <script src='app.js'></script>
+</body>
+
+</html>
