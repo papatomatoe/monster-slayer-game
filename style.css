@@ -106,7 +106,7 @@ button:active,
 .grid-container {
   padding: 25px;
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: 1fr;
   gap: 30px 20px;
   justify-items: center;
   align-items: center;
@@ -171,7 +171,7 @@ a.btn {
 }
 
 
-@media (min-with: 768px) {
+@media (min-width: 890px) {
   .page-title {
     border-radius: 50px;
     width: 80%;
